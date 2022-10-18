@@ -1,11 +1,21 @@
-<script setup>
+<script jan>
 
+import SidebarTrabajador from '../components/public/SidebarTrabajador.vue';
+
+export default {
+  components: {
+    SidebarTrabajador
+  }
+}
 </script>
 
 <template>
-  <h1>Trabajador View</h1>
+
+  <SidebarTrabajador />
+  <RouterView></RouterView>
 
 </template>
 
 <style scoped>
+
 </style>
