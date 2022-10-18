@@ -6,7 +6,8 @@ export default {
   name: 'Solicitudes',
   data() {
     return {
-      data: []
+      data: [],
+      usuario: {}
     }
   },
   components: {
@@ -22,6 +23,7 @@ export default {
   },
   async beforeMount() {
     this.data = await axios.get('http://127.0.0.1:8000/servicioDetail/')
+    this.usuario = JSON.parse(localStorage.getItem('usuario'))
   }
 }
 </script>
@@ -44,12 +46,12 @@ export default {
           </thead>
           <tbody>
             <tr @click="solicitud(registro.id)" v-for="registro in data.data" :key="registro.id">
-              <td>{{registro.id}}</td>
-              <td>{{registro.titulo}}</td>
+              <td v-if="registro.usuarioId.id === usuario.id">{{registro.id}}</td>
+              <td v-if="registro.usuarioId.id === usuario.id">{{registro.titulo}}</td>
               <!-- <td>{{registro.descripcion}}</td> -->
-              <td>{{registro.fecha_ingreso}}</td>
-              <td>{{registro.tipo_productoId.nombre_1}}</td>
-              <td><i class="bi bi-arrow-right-circle-fill"></i></td>
+              <td v-if="registro.usuarioId.id === usuario.id">{{registro.fecha_ingreso}}</td>
+              <td v-if="registro.usuarioId.id === usuario.id">{{registro.tipo_productoId.nombre_1}}</td>
+              <td v-if="registro.usuarioId.id === usuario.id"><i class="bi bi-arrow-right-circle-fill"></i></td>
             </tr>
           </tbody>
         </table>

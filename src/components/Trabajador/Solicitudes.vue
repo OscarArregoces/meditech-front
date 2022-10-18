@@ -12,6 +12,9 @@ export default {
   methods: {
     solicitud(id) {
       this.$router.push(`/dashboard/trabajador/respuestaT/${id}`)
+    },
+    aceptarSolicitud(id) {
+      this.$router.push(`/dashboard/trabajador/solicitudT/${id}`)
     }
   },
   async beforeMount() {
@@ -43,7 +46,7 @@ export default {
               <td v-if="registro.empleadoId === null">{{registro.titulo}}</td>
               <td v-if="registro.empleadoId === null">{{registro.fecha_ingreso}}</td>
               <td v-if="registro.empleadoId === null">{{registro.tipo_productoId.nombre_1}}</td>
-              <td v-if="registro.empleadoId === null" @click="solicitud(registro.id)"><i class="bi bi-arrow-right-circle-fill"></i></td>
+              <td v-if="registro.empleadoId === null" @click="aceptarSolicitud(registro.id)"><i class="bi bi-arrow-right-circle-fill"></i></td>
             </tr>
           </tbody>
         </table>

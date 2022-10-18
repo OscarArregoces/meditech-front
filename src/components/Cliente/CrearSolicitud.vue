@@ -35,6 +35,7 @@ export default {
                     })
 
                 console.log(response)
+                this.$router.push('/dashboard/cliente/solicitudes')
 
             } catch (error) {
                 console.log(error)
