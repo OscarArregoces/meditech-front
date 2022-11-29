@@ -78,6 +78,33 @@ const routes = [
             path: "respuestaT/:id",
             name: "respuestaT",
             component: () => import("../components/Trabajador/Respuesta.vue"),
+          },
+          {
+            path:'reportes',
+            name: 'reportes',
+            component: ()=>import("../components/reportes/Reportes.vue"),
+            children:[
+              {
+                path:'consulta1',
+                name: 'consulta1',
+                component: ()=>import("../components/reportes/Consulta1.vue")
+              },
+              {
+                path:'consulta2',
+                name: 'consulta2',
+                component: ()=>import("../components/reportes/Consulta2.vue")
+              },
+              {
+                path:'consulta3',
+                name: 'consulta3',
+                component: ()=>import("../components/reportes/Consulta3.vue")
+              },
+              {
+                path:'consulta4',
+                name: 'consulta4',
+                component: ()=>import("../components/reportes/Consulta4.vue")
+              },
+            ]
           }
         ]
       }

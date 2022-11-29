@@ -24,6 +24,9 @@ export default {
                     <li class="nav-item">
                         <router-link class="nav-link" to="/dashboard/trabajador/solicitudesT">Solicitudes</router-link>
                     </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/dashboard/trabajador/reportes">Reportes</router-link>
+                    </li>
                 </ul>
 
                 <ul class="navbar-nav">

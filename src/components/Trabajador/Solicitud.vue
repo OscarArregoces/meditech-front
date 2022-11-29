@@ -33,7 +33,9 @@ export default {
       this.$router.push('/dashboard/trabajador/solicitudesT')
       console.log(response)
     },
-    rechazar() { }
+    rechazar() { 
+      this.$router.go(-1)
+    }
     ,
   }
 }
@@ -62,13 +64,13 @@ export default {
         </div>
         <div class="my-4">
           <label class="form-label">Cliente</label>
-          <input type="text" class="form-control" :value="servicio[0].usuarioId.usuario" disabled>
+          <input type="text" class="form-control" :value="servicio[0].usuarioId.personaId.nombre" disabled>
         </div>
       </div>
     </div>
     <div class="botones my-4">
       <button @click="aceptar()" class="btn btn-success">Aceptar</button>
-      <button @click="rechazar()" class="btn btn-danger">Rachazar</button>
+      <button @click="rechazar()" class="btn btn-primary">Volver</button>
     </div>
   </div>
 </template>

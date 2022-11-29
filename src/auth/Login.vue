@@ -3,6 +3,8 @@
 <script lang="js">
 
 import axios from 'axios'
+// import Toast from 'primevue/toast';
+
 
 export default {
   data() {
@@ -22,21 +24,41 @@ export default {
             contraseña: this.contraseña
           })
 
-        if(response.data.ok){
+        if (response.data.ok) {
           localStorage.setItem('usuario', JSON.stringify(response.data.data))
+          this.inicio('success',`Bienvenido ${response.data.data.persona.nombre}`)
           console.log(response.data)
-          if(response.data.data.tipo_rolesId == 24){
+          if (response.data.data.tipo_rolesId == 24) {
             this.$router.push('/dashboard/cliente/solicitudes')
-          }else if( response.data.data.tipo_rolesId == 25 ){
+          } else if (response.data.data.tipo_rolesId == 25) {
             this.$router.push('/dashboard/trabajador/solicitudesT')
           }
-          
-        }else{
+
+        } else {
           this.$router.push('/auth/login')
         }
       } catch (error) {
+        this.inicio('error',`Credenciales incorrectas`)
         console.log(error)
       }
+    },
+    inicio(icono, titulo) {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
+      Toast.fire({
+        icon: icono,
+        title: titulo
+      })
     }
   }
 }

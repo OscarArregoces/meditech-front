@@ -63,7 +63,7 @@ export default {
               </div>
               <div class="my-4">
                 <label class="form-label">Cliente</label>
-                <input type="text" class="form-control" :value="servicio[0].usuarioId.usuario" disabled>
+                <input type="text" class="form-control" :value="servicio[0].usuarioId.personaId.nombre" disabled>
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@ export default {
               </div>
               <div class="my-4">
                 <label class="form-label">Estado del servicio:</label>
-                <input type="email" class="form-control" :value="respuestas[index].tipo_estado" disabled>
+                <input type="email" class="form-control" :value="respuestas[index].tipo_estado.nombre_1" disabled>
               </div>
             </div>
           </div>
